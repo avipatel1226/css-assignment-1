@@ -84,7 +84,7 @@ main {
     margin: 0 auto;
 }
 
-/* For larger screens: About Song + Lyrics side by side, Artist full width below */
+/* For larger screens About Song,Lyrics side by side*/
 @media(min-width: 900px) {
     main {
         display: grid;
