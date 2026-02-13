@@ -1,41 +1,81 @@
-/* CSS Reset & Box Sizing */
+/*CSS Reset & Box Sizing*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* header style */
-header {
-    margin-bottom: 30px;        /* space below the header */
-    text-align: center;          /* center the h1 */
-    padding: 20px 0;             /* vertical padding */
-    background-color: #11123d;   /* match sections background */
-    border-radius: 10px;         /* rounded edges like other cards */
-}
 
-/*  Body Styles */
+/*Body Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* clean body font */
-    background-color: #0b0c2a;          /* dark blue background like the album */
-    color: #e0e0e0;                     /* light grey text for contrast */
+    font-family: 'Roboto', sans-serif; 
+    background-color: #0b0c2a;          
+    color: #e0e0e0;                     
     line-height: 1.6;
     padding: 20px;
 }
-h1, h2 {
-    font-family: 'Orbitron', sans-serif;
-    color: #ffd700; /* gold/yellow accent like 80s style */
+
+/*Header Styles*/
+header {
+    margin-bottom: 30px;        
+    text-align: center;          
+    padding: 20px 0;             
+    background-color: #11123d;   
+    border-radius: 10px;         
 }
 
+/*H1 Styles & Animation*/
 h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffd700;
     font-size: 3rem;
     text-align: center;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.7);
+    animation: fadeInGlow 2s ease forwards; /* subtle initial animation */
 }
 
-h2 {
+@keyframes fadeInGlow {
+    0% {
+        opacity: 0;
+        text-shadow: 0 0 0 #ffd700, 0 0 0 #ffd700;
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+    }
+}
+
+/*H2 Styles & Slide-In Animation */
+h2:hover{
+    font-family: 'Orbitron', sans-serif;
+    color: #ffdd55; /* lighter gold on hover */
+    text-shadow: 2px 2px 6px #ffdd55; /* subtle glow */
+    transition: all 0.3s ease; /* smooth transition */
     font-size: 2rem;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(255, 215, 0, 0.5);
+    animation: slideIn 1s ease-out;
 }
+
+@keyframes slideIn {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/*Hover Effects*/
+aside p:hover {
+    color: #ffd700; /* change color on hover from grey to golden */
+    transition: color 0.3s ease;
+}
+/* Hover effect for About Song and Lyrics text */
+section p:hover,
+article p:hover {
+    color: #ffd700;       /* changes from grey to gold */
+    transition: color 0.3s ease; /* smooth transition */
+}
+
+
+/*Main Layout*/
 main {
     display: flex;
     flex-direction: column; 
@@ -44,22 +84,33 @@ main {
     margin: 0 auto;
 }
 
-/* column layout */
+/* For larger screens: About Song + Lyrics side by side, Artist full width below */
 @media(min-width: 900px) {
     main {
-        flex-direction: row;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-rows: auto auto; /* two rows */
+        gap: 20px;
     }
 
-    section, article {
-        flex: 2; 
+    section { /* About Song */
+        grid-column: 1 / 2; /* first column */
+        grid-row: 1;
     }
 
-    aside {
-        flex: 1; 
-        margin-left: 20px;
+    article { /* Lyrics */
+        grid-column: 2 / 3; /* second column */
+        grid-row: 1;
+    }
+
+    aside { /* About Artist spans both columns */
+        grid-column: 1 / 3; 
+        grid-row: 2;
     }
 }
+
+
+/*Sections, Article, Aside*/
 section, article, aside {
     background-color: #11123d; 
     padding: 20px;
@@ -67,18 +118,13 @@ section, article, aside {
 }
 
 article p {
-    margin-bottom: 15px; 
+    margin-bottom: 1em; /* space between lyric lines */
 }
+
+/*Footer*/
 footer {
     text-align: center;
     margin-top: 40px;
     font-size: 0.9rem;
     color: #aaaaaa;
-}
-h1 {
-    text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.7);
-}
-
-h2 {
-    text-shadow: 1px 1px 4px rgba(255, 215, 0, 0.5);
 }
