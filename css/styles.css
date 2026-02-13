@@ -1,0 +1,84 @@
+/* CSS Reset & Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* header style */
+header {
+    margin-bottom: 30px;        /* space below the header */
+    text-align: center;          /* center the h1 */
+    padding: 20px 0;             /* vertical padding */
+    background-color: #11123d;   /* match sections background */
+    border-radius: 10px;         /* rounded edges like other cards */
+}
+
+/*  Body Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* clean body font */
+    background-color: #0b0c2a;          /* dark blue background like the album */
+    color: #e0e0e0;                     /* light grey text for contrast */
+    line-height: 1.6;
+    padding: 20px;
+}
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffd700; /* gold/yellow accent like 80s style */
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+main {
+    display: flex;
+    flex-direction: column; 
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* column layout */
+@media(min-width: 900px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    section, article {
+        flex: 2; 
+    }
+
+    aside {
+        flex: 1; 
+        margin-left: 20px;
+    }
+}
+section, article, aside {
+    background-color: #11123d; 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+article p {
+    margin-bottom: 15px; 
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+h1 {
+    text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.7);
+}
+
+h2 {
+    text-shadow: 1px 1px 4px rgba(255, 215, 0, 0.5);
+}
